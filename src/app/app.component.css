@@ -1,0 +1,36 @@
+.mat-toolbar-single-row{
+  height: 50px;
+}
+
+.gore{
+  width:100vw;
+  display:inline-block
+}
+
+.gdesam{
+margin-left: 5vw;
+}
+
+.gdesamm{
+  margin-left: 5px;
+  }
+
+.naslov{
+  float:left;
+}
+
+.doledesno{
+  position: fixed;
+  bottom: 50px;
+  right: 50px; 
+  width: 60px;
+  height: 60px;
+  font-size: 25px;
+  z-index: 10;
+}
+
+.slide{
+  float:right;
+  margin-top: 5px;
+  font-size: 15px;
+}
