@@ -1,0 +1,21 @@
+.prijava{
+    max-width: 330px;
+    max-height: 550px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    top:200px;
+    margin:auto;
+  }
+  
+  .formgroup{
+      max-width: 330px;
+  }
+
+  ::ng-deep .placeholder{
+    color:var(--tekst);
+  }
+
+p{
+    color:var(--tekst);
+}

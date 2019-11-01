@@ -1,0 +1,64 @@
+
+
+<div class = "registracija">
+
+    <div>
+        <mat-form-field class="example-full-width">
+            <input type = "text" name = "name"  required matInput  [(ngModel)]="form.name" name="name">
+            <mat-placeholder class="placeholder">Ime</mat-placeholder>
+
+        </mat-form-field>
+    
+    </div>
+
+    <div>
+        <mat-form-field class="example-full-width">
+            <input type = "text" name = "prezime"  required matInput [(ngModel)]="form.prezime" name="prezime">
+            <mat-placeholder class="placeholder">Prezime</mat-placeholder>
+
+        </mat-form-field>
+        
+    </div>
+
+
+    <div>
+        <mat-form-field class="example-full-width">
+            <input type="text" name="username" required matInput [(ngModel)]="form.username">
+            <mat-placeholder class="placeholder">Username</mat-placeholder>
+
+        </mat-form-field>
+    </div>
+
+
+    <div>
+        <mat-form-field class="example-full-width">
+            <input type ="text" name="email"  required matInput [(ngModel)]="form.email">
+            <mat-placeholder class="placeholder">Email</mat-placeholder>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+
+
+    <div>
+        <mat-form-field class="example-full-width">
+            <input type="password" name="password"  required minlength="3" matInput [(ngModel)]="form.password">
+            <mat-placeholder class="placeholder">Lozinka</mat-placeholder>
+        </mat-form-field>
+
+    </div>
+
+
+    <div class="formgroup">
+    <button mat-raised-button color="primary" (click)="onSubmit()">Registracija</button>
+    </div>
+    <div *ngIf="isSignedUp; else signupForm">
+        Uspesna registracija. Molimo da se prijavite!
+    </div>
+    
+    <p>Imate nalog</p>
+    <a [routerLink]="['/login']">Prijavite se</a>
+
+
+
+    
+</div>

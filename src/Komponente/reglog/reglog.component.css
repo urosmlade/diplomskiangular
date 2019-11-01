@@ -1,0 +1,15 @@
+
+.registracija{
+  width: 330px;
+  height: 550px;
+  margin:auto;
+  margin-top: 100px; 
+}
+
+::ng-deep .placeholder{
+  color:var(--tekst);
+}
+
+p{
+  color:var(--tekst);
+}

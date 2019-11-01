@@ -1,0 +1,52 @@
+ 
+::ng-deep .mat-dialog-container{
+padding:0px;
+}
+
+
+ .odgovor-dijalog {
+    width: 700px;
+    overflow-wrap: break-word;
+    max-height: 700px;
+    border-color: var(--kartica);
+    border-width: 24px;
+    border-style: solid;
+    background-color: var(--kartica);
+  }
+
+
+.naslov{
+  text-align: center;
+  font-size: 25px;
+  color:var(--tekst);
+}
+
+.odgovor{
+  font-size: 20px;
+  min-width: 200px;
+  color:var(--tekst);
+
+}
+
+
+
+
+.doletekst{
+  margin-top: 0;
+  margin-bottom: 5px;
+  display:inline-block;
+  color:var(--tekst);
+
+}
+
+.mat-checkbox{
+  float: right;
+  margin-right: 10px;
+  margin-top: 6px;
+  color:var(--tekst);
+
+}
+.obrisidugme{
+  float: right;
+}
+

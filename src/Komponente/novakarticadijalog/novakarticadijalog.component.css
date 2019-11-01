@@ -1,0 +1,56 @@
+::ng-deep .mat-dialog-container{
+  padding:0px;
+  }
+  
+
+.nova-kartica {
+  display: flex;
+  flex-direction: column;
+  min-width: 450px;
+  border-color: var(--kartica);
+  border-width: 24px;
+  border-style: solid;
+  background-color: var(--kartica);
+ }
+
+ .form {
+  display: flex;
+
+ }
+
+ .mat-form-field {
+  font-size: 16px;
+  flex-grow: 1;
+ }
+
+ p{
+  color:var(--tekst);
+}
+
+button{
+  color:var(--tekst);
+}
+
+.mat-checkbox{
+  color:var(--tekst);
+}
+
+
+ .polje{
+   color:var(--tekst);
+ } 
+ 
+ .form{
+  background-color:var(--kartica);
+}
+
+
+.kategorije{
+  background-color: var(--kartica);
+  color:var(--tekst)
+}
+
+
+::ng-deep .placeholder{
+  color:var(--tekst);
+}

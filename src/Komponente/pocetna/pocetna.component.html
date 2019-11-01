@@ -1,0 +1,168 @@
+<div class = "levo">
+    <mat-list role="list">
+      
+      <i class="material-icons">apps</i>
+    <!-- <img class= "slikalevoc" src="assets\Slike\pocetna.png" alt="profilnaslika">-->
+        <p>Pocetna strana</p>
+
+        <i class="material-icons">perm_identity</i>
+        <!--
+        <img class= "slikalevoa" src="assets\Slike\profilnaslika.png" alt="profilnaslika">-->
+        <p>Profil</p>
+
+        <i class="material-icons">format_list_bulleted</i>
+<!--        <img class= "slikalevob" src="assets\Slike\kategorije.png" alt="profilnaslika">-->
+        <p>Kategorije</p>
+
+      </mat-list>
+  </div>
+  
+<mat-sidenav-container class="example-container">
+
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+
+      <mat-tab-group animationDuration="0ms">
+          <mat-tab label="Profil"> 
+            <div class = "profil">
+              <div class ="slika">
+                <img class= "profilslika" src="assets\Slike\profilnaslika.png" alt="profilnaslika">
+              </div>
+                <div class="opis">
+                  <p class ="imeprezime">{{this.korisnik?.ime}} {{this.korisnik?.prezime}}</p>
+                  <p class = "username" #username>{{this.korisnik?.username}}</p>
+                  <p class = "email">{{this.korisnik?.email}}</p>
+                          
+                  <button mat-stroked-button  *ngIf="staprikazati"  (click)="mojprofil()">Moje kartice</button>
+                  <button mat-stroked-button  *ngIf="!staprikazati" (click)="pocetnastrana()" >Pocetna strana</button>
+                  <button mat-stroked-button  (click)="logout()">Logout</button>
+                    
+                </div>
+              </div> 
+          </mat-tab>
+
+          <mat-tab label="Kategorije"> 
+              <cdk-virtual-scroll-viewport itemSize="5" class="kategorije">
+
+            <mat-accordion>
+              <mat-expansion-panel class = "harmonika">
+                  <mat-expansion-panel-header (click)="ucitajKategorijeZaKorisnika()">
+                    <mat-panel-title >
+                      <p id="pratim">Pratim</p> 
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+        
+                    <mat-nav-list *ngFor="let k of kategorijaa" (click)="this.kategorijaService.setKategorija(k.naziv)" (click)="ucitajFlashcardsPoKategoriji()" (click)="this.flashcardService.setGdeSam('Kategorija:')" (click)="this.userService.setPisac(null)">
+                      <p #nazivkategorije>{{k.naziv}}</p>
+                    <hr>
+                    </mat-nav-list>
+                    
+              </mat-expansion-panel>
+            </mat-accordion>
+        
+
+              <div *cdkVirtualFor="let k of prvakolona;let i = index">
+                <mat-list role="list">
+                  <mat-list-item role="listitem" class="kateg" (click)="this.kategorijaService.setKategorija(k.naziv)" (click)="ucitajFlashcardsPoKategoriji()" (click)="this.flashcardService.setGdeSam('Kategorija:')" (click)="this.userService.setPisac(null)">{{k.naziv}}</mat-list-item>
+                 <hr>
+                </mat-list>
+              <!--
+                
+                (click)="setId(i)"
+                
+                
+                <mat-accordion>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title  (click)="setId(i)" (click)="ucitajDruguKolonu()"> 
+                        <p id="{{'Id'+i}}">{{kategorija.naziv}}</p> 
+                     </mat-panel-title>
+                    </mat-expansion-panel-header>
+          
+                  
+                    <mat-list matExpansionPanelContent *ngFor="let drugakol of drugakolona" (click)="this.kategorijaService.setKategorija(drugakol.naziv)" (click)="ucitajFlashcardsPoKategoriji()" (click)="this.flashcardService.setGdeSam('Kategorija:')" (click)="this.userService.setPisac(null)">
+                        <p>{{drugakol.naziv}}</p>
+                      <mat-divider></mat-divider>
+          
+                    </mat-list>
+          
+                  </mat-expansion-panel>
+                  </mat-accordion>-->
+                </div>
+              </cdk-virtual-scroll-viewport>
+            
+            </mat-tab>
+          <mat-tab label="Korisnici"> 
+                  <div>
+                      <form>
+                          <mat-form-field>
+                              <input class="pretraga" matInput autocomplete = "off" [(ngModel)]="lajk"[ngModelOptions]="{standalone:true}" (change)="pretragaKorisnikaSearchBar(matInput)">
+                              <mat-placeholder class="placeholder">Pretraga po username</mat-placeholder>
+
+                            </mat-form-field>
+                        </form>
+                      </div>
+                    
+                <div class="korisnici">
+                  <div class = "korisnik" *ngFor= "let k of svikorisnici">
+                    <img class= "korisnicislika" src="assets\Slike\profilnaslika.png" alt="profilnaslika">
+                    <span class = "tekst">{{k.ime}} {{k.prezime}} / </span>
+                    <span #pisac>{{k.username}}</span>
+                    <button mat-button  (click)="tudjiprofil(pisac)">Profil</button>
+                    <hr>
+                  </div>
+                  </div>
+
+
+          </mat-tab>
+        </mat-tab-group>
+       </mat-sidenav>
+
+  <mat-sidenav-content>
+    <button [disableRipple]="true" (click)="pocetnastrana()"  class = "pocetnastranadugme" mat-button ></button>
+    <button [disableRipple]="true" class = "profildugme" mat-button (click)="sidenav.toggle()"></button>
+
+  <div class ="kartice">
+
+    <!--<app-kartice></app-kartice>
+
+    <div *ngFor="let k of kategorijaa">
+      <p>{{k.naziv}}</p>
+    </div>
+  -->
+
+
+  <p class = "brojkartica">Broj kartica: {{this.flashcards.length}}</p>
+
+<span *ngIf="this.kategorijaService.kategorija != null">
+    <button class = "prati" mat-stroked-button *ngIf="this.korisnikKategorija?.length == 0" (click)="postKategorija()">Zaprati</button>
+    <button class = "prati" mat-stroked-button *ngIf="this.korisnikKategorija?.length != 0" (click)="brisiKategorija()">Otprati</button>
+</span>
+
+<div class = "pozadina">
+  <cdk-virtual-scroll-viewport itemSize="10" class = "example-viewport">
+  
+    <mat-card (mouseover)="toggleHover(flashcard.id)" (mouseleave)="removeHover()" [className]="flashcard.privatno ? 'privatno' : 'javno'" *cdkVirtualFor = "let flashcard of flashcards; let i = index" >
+      <mat-card-content (click)="loadOne(i)">
+        <p>{{seci(flashcard.pitanje)}}</p>
+      </mat-card-content>
+      <mat-card-actions align="end" *ngIf="this.flashcard.korisnik.username == this.usernameService.decrypt()" >
+  
+        <mat-icon class="doledugme" aria-hidden="false" aria-label="Example edit icon" *ngIf="hoveredElement === flashcard.id" (click)="ucitajeditdijalog(i)">edit</mat-icon>
+        <mat-icon class="doledugme" aria-hidden="false" aria-label="Example delete icon" *ngIf="hoveredElement === flashcard.id" (click)="brisanjeDijalog(flashcard.id,flashcard.pitanje)">delete</mat-icon>
+
+      </mat-card-actions>
+    </mat-card>
+    
+</cdk-virtual-scroll-viewport>
+</div>
+</div>
+
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+

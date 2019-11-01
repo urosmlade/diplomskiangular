@@ -1,0 +1,19 @@
+.potvrda{
+    word-wrap: break-word;
+    width:700px;
+    border-color: var(--kartica);
+    border-width: 24px;
+    border-style: solid;
+    background-color: var(--kartica);
+    color:var(--tekst);
+    text-align: center;
+}
+
+button{
+    width:50%;
+}
+
+::ng-deep .mat-dialog-container{
+    padding:0px;
+}
+    

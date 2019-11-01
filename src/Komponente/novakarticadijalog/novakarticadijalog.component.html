@@ -1,0 +1,36 @@
+<div class="nova-kartica">
+    <p *ngIf = "flag == 1">Modifikacija kartice</p>
+    <p *ngIf = "flag != 1">Nova kartica</p>
+
+        <mat-form-field >
+          <textarea class="polje" matInput maxlength="100" [matTextareaAutosize] [(ngModel)]="flashcard.pitanje" required></textarea>
+          <mat-placeholder class="placeholder">Pitanje</mat-placeholder>
+
+        </mat-form-field>
+      
+        <mat-form-field>
+          <textarea class="polje"  matInput maxlength="500" [matTextareaAutosize] [(ngModel)]="flashcard.odgovor" required></textarea>
+          <mat-placeholder class="placeholder">Odgovor</mat-placeholder>
+
+        </mat-form-field>
+
+        <div class="form"> 
+          <mat-form-field> 
+              <mat-placeholder class="placeholder">Kategorija</mat-placeholder>
+            <mat-select class = "polje" [(ngModel)]="flashcard.kategorijaBean" name="kategorija" required > 
+            <mat-option *ngFor="let kate of kategorije" [value]="kate" class = "kategorije"> 
+            <p>{{kate.naziv}}</p> 
+          </mat-option> 
+        </mat-select> 
+      </mat-form-field> 
+    </div>
+
+
+<mat-checkbox *ngIf="flag==1"[(ngModel)]="flashcard.privatno" (change)="checkbox()">Privatno</mat-checkbox>
+<mat-checkbox *ngIf="flag!=1"[(ngModel)]="privatno">Privatno</mat-checkbox>
+
+
+
+<button mat-button (click)="add()">Potvrdi</button>
+
+</div>
