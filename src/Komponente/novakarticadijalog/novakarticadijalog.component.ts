@@ -36,7 +36,7 @@ export class NovakarticadijalogComponent implements OnInit {
               private usernameService:UsernameService) { }
 
     ngOnInit() {
-      this.kategorijaService.getDrugaKolonaSve().subscribe(data=>{
+      this.kategorijaService.getAllKategorija().subscribe(data=>{
           this.kategorije = data;
     });
 
@@ -62,7 +62,7 @@ export class NovakarticadijalogComponent implements OnInit {
     this.flashcardService.updateFlashcard(this.flashcard);
     this.snackBar.open("Modifikovali ste  karticu","U redu",{duration:2000});
     this.dialogRef.close();
-
+    
   }
   else{    
     if(this.flashcard.pitanje == null || this.flashcard.odgovor == null || this.flashcard.kategorijaBean == null){

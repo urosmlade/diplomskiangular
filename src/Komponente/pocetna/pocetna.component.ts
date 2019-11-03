@@ -1,8 +1,8 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { Flashcard } from 'src/Model/flashcard.model';
 import { FlashcardService } from 'src/Service/flashcard.service';
 import { OdgovorDijalogComponent } from '../odgovor-dijalog/odgovor-dijalog.component';
-import { MatDialog, MatSnackBar } from '@angular/material';
+import { MatDialog, MatSnackBar, MatSidenav } from '@angular/material';
 import { Router } from '@angular/router';
 import { Kategorija } from 'src/Model/kategorija.model';
 import { Korisnik } from 'src/Model/korisnik.model';
@@ -13,6 +13,7 @@ import { LoginComponent } from '../login/login.component';
 import { UsernameService } from 'src/Service/username.service';
 import { NovakarticadijalogComponent } from '../novakarticadijalog/novakarticadijalog.component';
 import { PotvrdadijalogComponent } from '../potvrdadijalog/potvrdadijalog.component';
+import { SideNavService } from 'src/Service/sidenav.service';
 
 @Component({
   selector: 'app-pocetna',
@@ -24,17 +25,19 @@ export class PocetnaComponent implements OnInit {
   flashcards : Flashcard[];
   kategorije : Kategorija[];
   brojKartica:Number;
-  staprikazati:Boolean;
-  naziv:string;
-  prvakolona : Kategorija[];
-  drugakolona : Kategorija[];
+  //naziv:string;
   i:number;
   korisnikKategorija:Korisnik[];
   svikorisnici:Korisnik[];
 
   kategorijaa:Kategorija[];
 
+  sidenavprikaz:number = 0;
 
+  pritisnuo:boolean;
+
+
+  
   constructor(private userService:UserService,
               public korisnik:Korisnik,
               private flashcardService:FlashcardService, 
@@ -46,7 +49,7 @@ export class PocetnaComponent implements OnInit {
               private usernameService:UsernameService,
               private kategorija:Kategorija,
               private snackBar:MatSnackBar,
-              private flashcard:Flashcard
+              private sideNavService: SideNavService
               ) { 
                 this.flashcardService.setGdeSam("Pocetna strana");
                 this.userService.setPisac(null);
@@ -54,7 +57,52 @@ export class PocetnaComponent implements OnInit {
               }
 
 
+ngOnInit() {
+  this.toggle();
+    this.ucitajKorisnika(this.usernameService.decrypt());
+    this.pocetnastrana();
+    //this.ucitajKategorijeZaKorisnika();
+    this.ucitajSveKategorije();
+
+}
+
+
+
+
+
+
 lajk:string;
+
+mrakbroj:number = 0;
+
+
+
+dark(){
+  this.mrakbroj++;
+
+  if(this.mrakbroj % 2 == 1){
+    this.mrak();
+  }else{
+    this.dan();
+  }
+}
+
+
+mrak(){
+  document.documentElement.style.setProperty('--color','#081B33');
+  document.documentElement.style.setProperty('--tekst','white');
+  document.documentElement.style.setProperty('--kartica','#2f4562');
+  document.documentElement.style.setProperty('--tab','#081B33');
+}
+
+
+dan(){
+  document.documentElement.style.setProperty('--color','rgb(245, 245, 245)');
+  document.documentElement.style.setProperty('--tekst','black');
+  document.documentElement.style.setProperty('--kartica','white');
+  document.documentElement.style.setProperty('--tab','rgb(245, 245, 245)');
+}
+
 
 
 
@@ -70,23 +118,22 @@ removeHover() {
 }
 
 
+@ViewChild('sidenav',null) public sidenav: MatSidenav;
 
-ngOnInit() {
 
-  this.ucitajKorisnika(this.usernameService.decrypt());
-  this.pocetnastrana();
-  this.ucitajKategorijeZaKorisnika();
 
+toggle(){
+
+  this.sideNavService.sideNavToggleSubject.subscribe(()=> {
+    this.sidenav.toggle();
+  });
 }
-
-
-//prebaci u app dodaj da se pamti
-
 
 
 
 
 pocetnastrana(){
+  this.sidenavprikaz = 0;
   this.kategorijaService.setKategorija(null);
   this.loadPocetnaStrana();
   this.userService.setPisac(null);
@@ -100,16 +147,15 @@ loadPocetnaStrana(){
     this.flashcards = data;
   })
 
-  this.kategorijaService.getDrugaKolonaSve().subscribe(data=>{
+  /*this.kategorijaService.getDrugaKolonaSve().subscribe(data=>{
     this.prvakolona = data;
-  });
+  });*/
 
 
 
   this.korisnikService.getAllKorisnik().subscribe(data=>{
     this.svikorisnici = data;
   });
-  this.staprikazati = true;
 }
 
 
@@ -123,6 +169,7 @@ public ucitajKorisnika(username:String){
 
 
 mojprofil(){
+  this.sidenavprikaz = 1;
   this.flashcardService.setGdeSam('Korisnik:');
   this.userService.setPisac(this.usernameService.decrypt());
   this.kategorijaService.setKategorija(null);
@@ -130,12 +177,13 @@ mojprofil(){
 }
 
 
+
+
 public flashcardsProfilKorisnikaPrivatnoIJavno(autor:string){
   this.flashcardService.flashcardsProfilKorisnikaPrivatnoIJavnoS(autor).subscribe(data=>{
     this.flashcards = data;
     this.brojKartica= this.flashcards.length;
   });
-  this.staprikazati = false;
 }
 
 
@@ -160,7 +208,16 @@ logout(){
 
 
 
+kategorijaprikaz(){
+  this.sidenavprikaz = 2;
+}
 
+
+
+
+korisnikprikaz(){
+  this.sidenavprikaz = 3;
+}
 
 
 
@@ -168,16 +225,15 @@ kategorijaMetoda(nazivkategorije:HTMLParagraphElement){
   const naziv = nazivkategorije.textContent;
   this.kategorijaService.setKategorija(naziv);
   this.userService.setPisac(null);
-  //this.ucitajDruguKolonu();
   this.flashcardService.setGdeSam('Kategorija:')
 }
 
-/*
-public ucitajDruguKolonu(){
-  this.kategorijaService.getDrugaKolona(document.getElementById('Id'+this.i).textContent).subscribe(data=>{
-    this.drugakolona = data;
+
+public ucitajSveKategorije(){
+  this.kategorijaService.getAllKategorija().subscribe(data=>{
+    this.kategorije = data;
   });
-}*/
+}
 
 
 
@@ -294,12 +350,12 @@ seci(str:string):String{
 
 
 ucitajeditdijalog(id:number){
-  this.editDijalog(1,this.flashcards[id].id,this.flashcards[id].pitanje,this.flashcards[id].odgovor, this.flashcards[id].kategorijaBean, this.flashcards[id].korisnik, this.flashcards[id].privatno);
+  this.editDijalog(this.flashcards[id].id,this.flashcards[id].pitanje,this.flashcards[id].odgovor, this.flashcards[id].kategorijaBean, this.flashcards[id].privatno);
 }
 
 
 
-editDijalog(flag:number,id:number, pitanje:string, odgovor:string, kategorijaBean:Kategorija, korisnik:Korisnik, privatno:boolean){
+editDijalog(id:number, pitanje:string, odgovor:string, kategorijaBean:Kategorija, privatno:boolean){
 
 const editDijalog = this.dialog.open(NovakarticadijalogComponent,{data:{id:id, pitanje:pitanje,odgovor:odgovor, kategorijaBean:kategorijaBean, privatno:privatno}});
 
@@ -349,17 +405,6 @@ brisanjeDijalog(id:number, pitanje:string){
   }
   
   
-
-
-
-
-
-
-
-
-
-
-
 
 
 

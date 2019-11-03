@@ -17,6 +17,7 @@ margin-left: 5vw;
 
 .naslov{
   float:left;
+  margin-left: 50px;
 }
 
 .doledesno{
@@ -33,4 +34,8 @@ margin-left: 5vw;
   float:right;
   margin-top: 5px;
   font-size: 15px;
+}
+
+.material-icons{
+  cursor: pointer;
 }

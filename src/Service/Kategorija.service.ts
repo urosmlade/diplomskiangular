@@ -10,9 +10,11 @@ export class KategorijaService{
     
     constructor (private httpClient:HttpClient){}
 
-    private urlPrvaKolona = 'http://localhost:8083/api/auth/kategorija/prvakolona';
-    private urlDrugaKolona = 'http://localhost:8083/api/auth/kategorija/drugakolona/';
-    private urlDrugaKolonaSve = 'http://localhost:8083/api/auth/kategorija/drugakolona';
+
+
+    //private urlPrvaKolona = 'http://localhost:8083/api/auth/kategorija/prvakolona';
+    //private urlDrugaKolona = 'http://localhost:8083/api/auth/kategorija/drugakolona/';
+    //private urlDrugaKolonaSve = 'http://localhost:8083/api/auth/kategorija/drugakolona';
 
 
 
@@ -30,7 +32,7 @@ export class KategorijaService{
     
 
     dataKat:BehaviorSubject<Kategorija[]> = new BehaviorSubject<Kategorija[]>([]);
-/*
+
     public getAllKategorija():Observable<Kategorija[]>{
         this.httpClient.get<Kategorija[]>(this.kategorijaURL).subscribe(data=>{
             this.dataKat.next(data);
@@ -41,13 +43,11 @@ export class KategorijaService{
         return this.dataKat.asObservable();
     }
 
-*/
 
 
 
 
-
-
+/*
     public getPrvaKolona():Observable<Kategorija[]>{
         this.httpClient.get<Kategorija[]>(this.urlPrvaKolona).subscribe(data=>{
             this.dataChange.next(data);
@@ -78,7 +78,7 @@ export class KategorijaService{
         });
         return this.dataChangeee.asObservable();
     }
-
+*/
 
 
 

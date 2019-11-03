@@ -43,9 +43,11 @@ import 'hammerjs';
 import { UsernameService } from 'src/Service/username.service';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { PotvrdadijalogComponent } from '../Komponente/potvrdadijalog/potvrdadijalog.component';
+import { SideNavService } from 'src/Service/sidenav.service';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 const Routes = [{path : 'register', component : ReglogComponent},
-                {path: 'pocetna', component:PocetnaComponent},
+                {path: 'flashcards', component:PocetnaComponent},
                 {path:'login', component:LoginComponent},
                 {path:'',component:LoginComponent}]
 
@@ -90,11 +92,12 @@ const Routes = [{path : 'register', component : ReglogComponent},
     MatTreeModule,
     MatExpansionModule,
     MatSidenavModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatButtonToggleModule
     ],
   entryComponents:[PotvrdadijalogComponent,OdgovorDijalogComponent, NovakarticadijalogComponent, ReglogComponent],
 
-  providers:  [UsernameService, PocetnaComponent,Kategorija,FlashcardService, KorisnikService, Korisnik, ReglogComponent, LoginComponent, Flashcard, KategorijaService],
+  providers:  [SideNavService,UsernameService, PocetnaComponent,Kategorija,FlashcardService, KorisnikService, Korisnik, ReglogComponent, LoginComponent, Flashcard, KategorijaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

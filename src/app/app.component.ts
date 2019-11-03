@@ -14,6 +14,7 @@ import { KategorijaService } from 'src/Service/Kategorija.service';
 import { UsernameService } from 'src/Service/username.service';
 import { UserService } from '../Service/user.service';
 import { PocetnaComponent } from 'src/Komponente/pocetna/pocetna.component';
+import { SideNavService } from 'src/Service/sidenav.service';
 
 
 @Component({
@@ -24,15 +25,6 @@ import { PocetnaComponent } from 'src/Komponente/pocetna/pocetna.component';
 })
 export class AppComponent {
 
-  loading = false;
-
-  title = 'Flashcards';
-  puskice :Flashcard[];
-  //info:any;
-
-  kategorije:Kategorija[];
-  sastrane:number;
-
 
 
   constructor(public korisnik:Korisnik, 
@@ -42,17 +34,21 @@ export class AppComponent {
               public reglog:ReglogComponent, 
               private router:Router, 
               public login:LoginComponent,
-             // private token:TokenStorageService,
               private korisnikService:KorisnikService,
               public kategorijaService:KategorijaService,
               private usernameService:UsernameService,
               private userService:UserService,
               private kategorija:Kategorija,
-              public pocetna:PocetnaComponent){
+              public pocetna:PocetnaComponent,
+              private sideNavService: SideNavService){
                 
               }
-            
+    
+              
 
+clickMenu() { 
+  this.sideNavService.toggle();
+}
 
 
 postaviNaslov(naslov:string){
@@ -72,16 +68,10 @@ public brisiKategorija(){
 
 
   ngOnInit(){
-    //this.dark();
   }
  
 
 
-  logout(){
-    this.usernameService.setUsername(null);
-    this.login.isLoggedIn = false;
-    this.router.navigate(['/login']);
-  }
 
 
 
@@ -102,50 +92,7 @@ public openDialog(){
     if(naziv=="Kategorija:"){
       this.pocetna.ucitajFlashcardsPoKategoriji();
     }
-
   })
-
 }
-
-
-mrakbroj:number = 0;
-
-
-   
-      
-      dark(){
-        this.mrakbroj++;
-
-          //window.sessionStorage.getItem(dannoc);
-        if(this.mrakbroj % 2 == 1){
-          this.mrak();
-          //window.sessionStorage.setItem(dannoc,'1');
-        }else{
-          this.dan();
-         // window.sessionStorage.setItem(dannoc,'0');
-        }
-      }
-
-
-      mrak(){
-        document.documentElement.style.setProperty('--color','#081B33');
-        document.documentElement.style.setProperty('--tekst','white');
-        document.documentElement.style.setProperty('--kartica','#2f4562');
-        document.documentElement.style.setProperty('--tab','#081B33');
-      }
-      
-      
-      dan(){
-        document.documentElement.style.setProperty('--color','rgb(245, 245, 245)');
-        document.documentElement.style.setProperty('--tekst','black');
-        document.documentElement.style.setProperty('--kartica','white');
-        document.documentElement.style.setProperty('--tab','rgb(245, 245, 245)');
-      }
-      
-
-
-
-
-
 }
 

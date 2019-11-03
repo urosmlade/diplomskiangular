@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
 
    if(this.isLoggedIn){
-      this.router.navigate(['/pocetna']);
+      this.router.navigate(['/flashcards']);
 
     }
 
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
 
-        this.router.navigate(['/pocetna']);
+        this.router.navigate(['/flashcards']);
       },
       error => {
         console.log(error);

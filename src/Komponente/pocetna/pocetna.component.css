@@ -31,6 +31,13 @@ hr{
   background-color: var(--color);
 }
 
+.profil{
+  float: left;
+  margin-left: 50px;
+}
+
+
+
 .profilslika{
   width:150px;
   height:150px;
@@ -52,14 +59,24 @@ hr{
 
 .kategorije{
   background-color: var(--color);
-  height:80vh;
+  height:85vh;
   padding-top: 20px;
-  text-align: center;
+  text-align: left;
+}
+
+.kategorijee{
+  background-color: var(--color);
+  height:85vh;
+  padding-top: 20px;
+  text-align: left;
+  float: left;
+  width:400px;
+  margin-left: 15px;
 }
 
 .kateg{
   color:var(--tekst);
-  text-align: center;
+  text-align: left;
 }
 
 .harmonika{
@@ -97,15 +114,81 @@ hr{
 
 .mat-sidenav{
   background-color: var(--color);
+  display:flex;
 }
 
-
+.mat-drawer-side {
+   border-right: solid 1px rgba(0,0,0,0); 
+}
 .levo{
-  width:80px;
+  width:50px;
   height:90vh;
   float: left;
   text-align: center;
   background-color: var(--color);
+  margin-top: 20px;
+}
+
+
+
+.ikonice{
+  width:50px;
+  height: 50px;
+  float:left;
+  margin-top: 10px;
+  cursor: pointer;
+  color:var(--tekst);
+}
+
+
+
+.ikonicedole{
+  position: absolute;
+  left:22px;
+  bottom: 100px;
+  float:left;
+  cursor: pointer;
+  color:var(--tekst);
+
+}
+
+
+.ikonicedolesvetlo{
+  position: absolute;
+  left:22px;
+  bottom: 150px;
+  float:left;
+  cursor: pointer;
+  color:var(--tekst);
+}
+
+.containerlevo{
+  float:left;
+  margin-top: 25px;
+}
+
+.containerlevotekstprvo{
+  cursor: pointer;
+
+}
+
+.containerlevotekst{
+  margin-top: 42px;
+  cursor: pointer;
+}
+
+.containerlevotekstdole{
+  position: absolute;
+  bottom: 50px;
+  float:left;
+  cursor: pointer;
+}
+
+.containerlevotekstdolesijalica{
+  position: absolute;
+  bottom: 100px;
+  float:left;
+  cursor: pointer;
 }
 
 
@@ -147,6 +230,12 @@ hr{
   border-radius: 50%;
   margin-top:10px
 }
+
+.svikorisnici{
+  width:350px;
+  margin-left: 110px;
+}
+
 
 .korisnici {
   background-color: var(--color);
@@ -216,7 +305,7 @@ padding-right: 10px;
 }
 
 .doledugme:hover{
-cursor: pointer;
+  cursor: pointer;
 
 }
 
@@ -279,3 +368,5 @@ height: 20px;
   width:100px;
   height:100px;
 }
+
+
