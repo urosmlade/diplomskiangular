@@ -59,13 +59,18 @@ export class NovakarticadijalogComponent implements OnInit {
 
   if(this.flag == 1){
     this.flashcard.korisnik = this.korisnik;
+
+    if(this.flashcard.pitanje == null || this.flashcard.odgovor == null ||this.flashcard.pitanje == '' || this.flashcard.odgovor == ''){
+      this.snackBar.open("Morate popuniti sva polja", "U redu", {duration:2000,});
+    }else{
+
     this.flashcardService.updateFlashcard(this.flashcard);
     this.snackBar.open("Modifikovali ste  karticu","U redu",{duration:2000});
     this.dialogRef.close();
-    
+    }
   }
   else{    
-    if(this.flashcard.pitanje == null || this.flashcard.odgovor == null || this.flashcard.kategorijaBean == null){
+    if(this.flashcard.pitanje == null || this.flashcard.odgovor == null || this.flashcard.kategorijaBean == null ||this.flashcard.pitanje == '' || this.flashcard.odgovor == ''){
       this.snackBar.open("Morate popuniti sva polja", "U redu", {duration:2000,});
     }else{
     this.flashcard.korisnik = this.korisnik;

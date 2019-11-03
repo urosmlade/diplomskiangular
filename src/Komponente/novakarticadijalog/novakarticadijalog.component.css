@@ -6,7 +6,7 @@
 .nova-kartica {
   display: flex;
   flex-direction: column;
-  min-width: 450px;
+  min-width: 500px;
   border-color: var(--kartica);
   border-width: 24px;
   border-style: solid;
@@ -52,5 +52,10 @@ button{
 
 
 ::ng-deep .placeholder{
+  color:var(--tekst);
+}
+
+
+.hint{
   color:var(--tekst);
 }

@@ -13,9 +13,9 @@
 
 
 
-    <mat-icon class="ikonicedolesvetlo" (click)="dark()" *ngIf="mrakbroj %2 !=1">lightbulb</mat-icon>
+    <mat-icon class="ikonice" (click)="dark()" *ngIf="mrakbroj %2 !=1">lightbulb</mat-icon>
 
-    <mat-icon class="ikonicedolesvetlo" (click)="dark()" *ngIf="mrakbroj %2 == 1">lightbulb_outline</mat-icon>
+    <mat-icon class="ikonice" (click)="dark()" *ngIf="mrakbroj %2 == 1">lightbulb_outline</mat-icon>
 
     <mat-icon class="ikonicedole" (click)="logout()">logout</mat-icon>
 
@@ -35,7 +35,7 @@
       <p class="containerlevotekst" (click)="kategorijaprikaz()">Kategorije</p>
       <p class="containerlevotekst" (click)="korisnikprikaz()">Korisnici</p>
 
-      <p class="containerlevotekstdolesijalica" (click)="dark()">Dark mode</p>
+      <p class="containerlevotekst" (click)="dark()">Dark mode</p>
       <p class="containerlevotekstdole" (click)="logout()">Odjavite se</p>
 
     </div>
@@ -113,8 +113,8 @@
   <p class = "brojkartica">Broj kartica: {{this.flashcards.length}}</p>
 
     <span *ngIf="this.kategorijaService.kategorija != null">
-      <button class = "prati" mat-stroked-button *ngIf="this.korisnikKategorija?.length == 0" (click)="postKategorija()">Zaprati</button>
-      <button class = "prati" mat-stroked-button *ngIf="this.korisnikKategorija?.length != 0" (click)="brisiKategorija()">Otprati</button>
+      <button class = "prati" mat-stroked-button *ngIf="this.korisnikKategorija.length == 0" (click)="postKategorija()">Zaprati</button>
+      <button class = "prati" mat-stroked-button *ngIf="this.korisnikKategorija.length != 0" (click)="brisiKategorija()">Otprati</button>
     </span>
 
     <div class = "pozadina">

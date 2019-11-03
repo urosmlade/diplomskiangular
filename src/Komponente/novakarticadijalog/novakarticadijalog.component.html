@@ -3,13 +3,16 @@
     <p *ngIf = "flag != 1">Nova kartica</p>
 
         <mat-form-field >
-          <textarea class="polje" matInput maxlength="100" [matTextareaAutosize] [(ngModel)]="flashcard.pitanje" required></textarea>
+          <textarea class="polje" matInput maxlength="200" #pitanje [matTextareaAutosize] [(ngModel)]="flashcard.pitanje" required></textarea>
+          <mat-hint align="end" class ="hint">{{pitanje.value?.length || 0}}/200</mat-hint>
+
           <mat-placeholder class="placeholder">Pitanje</mat-placeholder>
 
         </mat-form-field>
       
         <mat-form-field>
-          <textarea class="polje"  matInput maxlength="500" [matTextareaAutosize] [(ngModel)]="flashcard.odgovor" required></textarea>
+          <textarea class="polje"  matInput maxlength="1000" #odgovor [matTextareaAutosize] [(ngModel)]="flashcard.odgovor" required></textarea>
+          <mat-hint align="end" class ="hint">{{odgovor.value?.length || 0}}/1000</mat-hint>
           <mat-placeholder class="placeholder">Odgovor</mat-placeholder>
 
         </mat-form-field>

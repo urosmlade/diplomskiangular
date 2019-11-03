@@ -34,7 +34,6 @@
         <mat-form-field class="example-full-width">
             <input type ="text" name="email"  required matInput [(ngModel)]="form.email">
             <mat-placeholder class="placeholder">Email</mat-placeholder>
-            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
     </div>
 
@@ -50,6 +49,7 @@
 
     <div class="formgroup">
     <button mat-raised-button color="primary" (click)="onSubmit()">Registracija</button>
+
     </div>
     <div *ngIf="isSignedUp; else signupForm">
         Uspesna registracija. Molimo da se prijavite!
@@ -58,7 +58,7 @@
     <p>Imate nalog</p>
     <a [routerLink]="['/login']">Prijavite se</a>
 
-
-
+    
+<p>{{errorMessage}}</p>
     
 </div>

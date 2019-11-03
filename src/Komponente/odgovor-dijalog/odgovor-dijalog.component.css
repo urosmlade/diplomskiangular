@@ -5,7 +5,7 @@ padding:0px;
 
 
  .odgovor-dijalog {
-    width: 700px;
+    width: 900px;
     overflow-wrap: break-word;
     max-height: 700px;
     border-color: var(--kartica);

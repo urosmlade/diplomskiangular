@@ -54,19 +54,24 @@ export class LoginComponent implements OnInit {
        window.sessionStorage.setItem(USERNAME_KEY ,this.encryptedText);
         
 
-
-        //this.tokenStorage.saveToken(data.accessToken);
-        //this.tokenStorage.saveUsername(data.username);
-
         this.isLoginFailed = false;
         this.isLoggedIn = true;
 
         this.router.navigate(['/flashcards']);
       },
       error => {
-        console.log(error);
-        this.errorMessage = error.error.message;
-        this.isLoginFailed = true;
+
+       /* if(this.form.username==null || this.form.username == ''){
+          this.errorMessage = 'Morate uneti username';
+        }else if(this.form.password == null || this.form.password == ''){
+          this.errorMessage = "Morate uneti lozinku"
+        }else{*/
+          console.log(error);
+          this.errorMessage = error.error.message;
+          this.isLoginFailed = true;
+       // }
+
+       
       }
     );
   }

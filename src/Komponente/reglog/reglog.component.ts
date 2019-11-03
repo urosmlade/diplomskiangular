@@ -16,12 +16,18 @@ export class ReglogComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
   email = new FormControl('', [Validators.required, Validators.email]);
-
+  usernamepostoji:String;
   constructor(private authService: AuthService) { }
 
-  ngOnInit() { }
+  greska:string;
+
+
+  ngOnInit() { 
+  }
 
   onSubmit() {
+
+
 
     this.signupInfo = new SignUpInfo(
       this.form.name,
@@ -37,18 +43,35 @@ export class ReglogComponent implements OnInit {
         this.isSignUpFailed = false;
       },
       error => {
-        console.log(error);
+        if(this.form.name==null || this.form.name == ''){
+          this.errorMessage = 'Morate uneti ime';
+        }else if(this.form.prezime == null || this.form.prezime == ''){
+          this.errorMessage = "Morate uneti prezime"
+        }else if(this.form.username == null || this.form.username == ''){
+          this.errorMessage = "Morate uneti username"
+        }else if(this.form.email == null || this.form.email == ''){
+          this.errorMessage = "Morate uneti email"
+        }else if(this.form.password == null || this.form.password == ''){
+          this.errorMessage = "Morate uneti lozinku"
+        }else if(this.form.password.length <= 6){
+          this.errorMessage = "Lozinka mora imati minimum 6 karaktera"
+        }
+        
+        else{
         this.errorMessage = error.error.message;
-        this.isSignUpFailed = true;
       }
+      this.isSignUpFailed = true;
+
+    }
+      
     );
+    
+    
+
   }
 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'Morate uneti email' :
-        this.email.hasError('email') ? 'Email nije vazeci' :
-            '';
-  }
+ 
+
 
 
 }

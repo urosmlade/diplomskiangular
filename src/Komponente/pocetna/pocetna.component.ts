@@ -104,7 +104,6 @@ dan(){
 }
 
 
-///TEST GIT PUSH
 
 
 public hoveredElement:any;
@@ -260,15 +259,18 @@ ucitajKategorijeZaKorisnika(){
 
 
 
-
 public postKategorija(){
+
   this.korisnikService.korisnikKategorijaPostavi(this.kategorija);
   this.snackBar.open("Zapratili ste kategoriju "+this.kategorijaService.getKategorija(),"U redu", {duration:2500});
+
 }
 
 
-public brisiKategorija(){
+public brisiKategorija(){  
+
   this.korisnikService.korisnikKategorijaObrisi();
+
   this.snackBar.open("Otpratili ste kategoriju "+this.kategorijaService.getKategorija(),"U redu", {duration:2500});
 
 }

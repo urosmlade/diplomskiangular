@@ -145,7 +145,7 @@ hr{
 .ikonicedole{
   position: absolute;
   left:22px;
-  bottom: 100px;
+  bottom: 90px;
   float:left;
   cursor: pointer;
   color:var(--tekst);
@@ -179,7 +179,7 @@ hr{
 
 .containerlevotekstdole{
   position: absolute;
-  bottom: 50px;
+  bottom: 40px;
   float:left;
   cursor: pointer;
 }
@@ -269,9 +269,9 @@ button{
   outline-width: 1px;
   margin-top: 5px;
   word-wrap: break-word;
-padding-top: 10px;
-padding-left: 10px;
-padding-right: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .privatno{
@@ -304,9 +304,13 @@ padding-right: 10px;
  align-content: right;
 }
 
+.doledugme{
+  color:var(--tekst);
+
+}
+
 .doledugme:hover{
   cursor: pointer;
-
 }
 
 

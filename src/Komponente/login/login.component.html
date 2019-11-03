@@ -6,7 +6,6 @@
             <mat-form-field class="polje">
                 <input type="text" name="username" #username="ngModel" required matInput [(ngModel)]="form.username">
                 <mat-placeholder class="placeholder">Username</mat-placeholder>
-
               </mat-form-field>
         </div>
 
@@ -25,7 +24,9 @@
     
 
       </form>
-      
+      <p>{{errorMessage}}</p>
+
       <p>Niste registrovani?</p>
       <a [routerLink]="['/register']">Registracija</a>
     </div>
+
