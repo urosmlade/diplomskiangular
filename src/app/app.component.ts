@@ -32,15 +32,15 @@ export class AppComponent {
               public flashcardService:FlashcardService, 
               public dialog:MatDialog, 
               public reglog:ReglogComponent, 
-              private router:Router, 
+              public router:Router, 
               public login:LoginComponent,
-              private korisnikService:KorisnikService,
+              public korisnikService:KorisnikService,
               public kategorijaService:KategorijaService,
-              private usernameService:UsernameService,
-              private userService:UserService,
-              private kategorija:Kategorija,
+              public usernameService:UsernameService,
+              public userService:UserService,
+              public kategorija:Kategorija,
               public pocetna:PocetnaComponent,
-              private sideNavService: SideNavService){
+              public sideNavService: SideNavService){
                 
               }
     

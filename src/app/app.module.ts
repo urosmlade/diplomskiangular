@@ -5,10 +5,9 @@ import { ReglogComponent } from 'src/Komponente/reglog/reglog.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { PocetnaComponent } from '../Komponente/pocetna/pocetna.component';
-import {RouterModule, Routes}  from '@angular/router';
+import {RouterModule}  from '@angular/router';
 import { FlashcardService } from 'src/Service/flashcard.service';
 import { HttpClientModule } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -29,27 +28,17 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { Flashcard } from 'src/Model/flashcard.model';
-import {MatTableModule} from '@angular/material/table';
 import { KategorijaService } from 'src/Service/Kategorija.service';
 import { Kategorija } from 'src/Model/kategorija.model';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatRadioModule} from '@angular/material/radio';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatTreeModule} from '@angular/material/tree';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import 'hammerjs';
 import { UsernameService } from 'src/Service/username.service';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { PotvrdadijalogComponent } from '../Komponente/potvrdadijalog/potvrdadijalog.component';
 import { SideNavService } from 'src/Service/sidenav.service';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
-const Routes = [{path : 'register', component : ReglogComponent},
-                {path: 'flashcards', component:PocetnaComponent},
-                {path:'login', component:LoginComponent},
-                {path:'',component:LoginComponent}]
 
 
 @NgModule({
@@ -68,9 +57,11 @@ const Routes = [{path : 'register', component : ReglogComponent},
     MatButtonModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatTabsModule,
     MatToolbarModule,
-    RouterModule.forRoot(Routes),
+    RouterModule.forRoot([{path : 'register', component : ReglogComponent},
+    {path: 'flashcards', component:PocetnaComponent},
+    {path:'login', component:LoginComponent},
+    {path:'',component:LoginComponent}]),
     HttpClientModule,
     MatFormFieldModule,
     MatDialogModule,
@@ -85,15 +76,9 @@ const Routes = [{path : 'register', component : ReglogComponent},
     ScrollingModule,
     MatIconModule,
     MatCheckboxModule,
-    MatTableModule,
-    MatProgressBarModule, 
-    MatRadioModule,
     MatTooltipModule,
-    MatTreeModule,
     MatExpansionModule,
     MatSidenavModule,
-    MatSlideToggleModule,
-    MatButtonToggleModule
     ],
   entryComponents:[PotvrdadijalogComponent,OdgovorDijalogComponent, NovakarticadijalogComponent, ReglogComponent],
 

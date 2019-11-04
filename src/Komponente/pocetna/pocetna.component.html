@@ -86,7 +86,7 @@
           <div>
             <form>
               <mat-form-field>
-                <input class="pretraga" matInput autocomplete = "off" [(ngModel)]="lajk"[ngModelOptions]="{standalone:true}" (change)="pretragaKorisnikaSearchBar(matInput)">
+                <input class="pretraga" matInput #inp autocomplete = "off" [(ngModel)]="lajk" [ngModelOptions]="{standalone:true}" (change)="pretragaKorisnikaSearchBar()">
                   <mat-placeholder class="placeholder">Pretraga po username</mat-placeholder>
 
               </mat-form-field>

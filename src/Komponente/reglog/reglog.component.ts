@@ -17,7 +17,7 @@ export class ReglogComponent implements OnInit {
   errorMessage = '';
   email = new FormControl('', [Validators.required, Validators.email]);
   usernamepostoji:String;
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   greska:string;
 

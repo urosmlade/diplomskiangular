@@ -28,7 +28,7 @@ korisnik:Korisnik;
               public usernameService:UsernameService,
               public kategorijaService:KategorijaService,
               //public pocetna:PocetnaComponent
-              private snackBar:MatSnackBar,
+              public snackBar:MatSnackBar,
               ) { }
 
 public deleteFlashcard(id:number){

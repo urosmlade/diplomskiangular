@@ -12,8 +12,8 @@ export class PotvrdadijalogComponent implements OnInit {
 
   constructor(
     @Inject (MAT_DIALOG_DATA) public data:Flashcard,
-    private dialog:MatDialog,
-    private flashcardService:FlashcardService) { }
+    public dialog:MatDialog,
+    public flashcardService:FlashcardService) { }
 
   ngOnInit() {
   }

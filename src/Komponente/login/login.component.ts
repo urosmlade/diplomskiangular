@@ -24,10 +24,10 @@ export class LoginComponent implements OnInit {
   //conversionEncryptOutput: string;  
   //conversionDecryptOutput:string;  
   encryptedText:string;
-  constructor(private authService: AuthService, 
+  constructor(public authService: AuthService, 
               //private tokenStorage: TokenStorageService, 
-              private router:Router,
-              private usernameService:UsernameService) { }
+              public router:Router,
+              public usernameService:UsernameService) { }
 
   ngOnInit() {
 

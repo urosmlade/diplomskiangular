@@ -36,20 +36,20 @@ export class PocetnaComponent implements OnInit {
 
   pritisnuo:boolean;
 
-
+  opened:boolean;
   
-  constructor(private userService:UserService,
+  constructor(public userService:UserService,
               public korisnik:Korisnik,
-              private flashcardService:FlashcardService, 
+              public flashcardService:FlashcardService, 
               public dialog:MatDialog,
               public router:Router, 
               public kategorijaService:KategorijaService,
-              private korisnikService:KorisnikService,
+              public korisnikService:KorisnikService,
               public login:LoginComponent,
-              private usernameService:UsernameService,
-              private kategorija:Kategorija,
-              private snackBar:MatSnackBar,
-              private sideNavService: SideNavService
+              public usernameService:UsernameService,
+              public kategorija:Kategorija,
+              public snackBar:MatSnackBar,
+              public sideNavService: SideNavService
               ) { 
                 this.flashcardService.setGdeSam("Pocetna strana");
                 this.userService.setPisac(null);
@@ -63,6 +63,8 @@ ngOnInit() {
     this.pocetnastrana();
     //this.ucitajKategorijeZaKorisnika();
     this.ucitajSveKategorije();
+
+
 
 }
 

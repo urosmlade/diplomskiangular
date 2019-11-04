@@ -33,7 +33,7 @@ export class NovakarticadijalogComponent implements OnInit {
               public korisnikService:KorisnikService,
               public userService:UserService,
               public kategorijaService:KategorijaService,
-              private usernameService:UsernameService) { }
+              public usernameService:UsernameService) { }
 
     ngOnInit() {
       this.kategorijaService.getAllKategorija().subscribe(data=>{
