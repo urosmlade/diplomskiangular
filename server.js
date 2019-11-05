@@ -3,6 +3,8 @@ const app = express();
 const path = requere('path');
 
 app.use(express.static(__dirname + '/dist/Flashcards'));
+res.sendFile(path.join(__dirname+'/dist/Flashcards/index.html'));
+
 
 app.listen(process.env.PORT || 8080);
 
