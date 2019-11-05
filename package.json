@@ -8,8 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "preinstall": "npm install -g @angular/cli",
-    "postinstall": "ng build --aot --prod"
+    "postinstall": "ng build --aot -targer=production"
   },
   "private": true,
   "dependencies": {
@@ -39,8 +38,6 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.4",
-    "@angular/cli": "^8.3.17",
-    "@angular/compiler-cli": "^8.2.13",
     "@angular/language-service": "~8.2.5",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
@@ -56,8 +53,7 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "tslint": "~5.15.0"
   },
   "engines": {
     "node": "10.16.0",

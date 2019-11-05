@@ -1,13 +1,14 @@
-var express = require('express');
-var app = express();
-var server = require('http').Server(app);
-var bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+const path = requere('path');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}) );
+app.use(express.static(__dirname + '/dist'));
 
-app.use( express.static(__dirname + '/client' ) );
+app.listen(process.env.PORT || 8080);
 
-var listener = server.listen(process.env.PORT || 5000, function(){
-    console.log('Listening on port ' + listener.address().port); //Listening on port 5000
-});
+//PathLocationStrategy
+app.get('/*', function(req,res){
+    res.sendFile(path.join(__dirname + '/dist/index.html'));
+})
+
+console.log('Console listening');
