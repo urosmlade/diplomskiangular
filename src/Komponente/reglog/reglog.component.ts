@@ -53,7 +53,7 @@ export class ReglogComponent implements OnInit {
           this.errorMessage = "Morate uneti email"
         }else if(this.form.password == null || this.form.password == ''){
           this.errorMessage = "Morate uneti lozinku"
-        }else if(this.form.password.length <= 6){
+        }else if(this.form.password.length < 6){
           this.errorMessage = "Lozinka mora imati minimum 6 karaktera"
         }
         

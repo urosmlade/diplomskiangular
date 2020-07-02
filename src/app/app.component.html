@@ -1,52 +1,17 @@
 <mat-toolbar color="primary">
-        <i class="material-icons" (click)="clickMenu()" *ngIf="router.url != '/login' && router.url!='/register' && router.url !='/'">menu</i>
+    <i class="material-icons" (click)="clickMenu()" *ngIf="router.url != '/login' && router.url!='/register' && router.url !='/'">menu</i>
 
-    <div class = "gore">
-    <span class="naslov" [routerLink]="['/pocetna']">Flashcards</span>
-    <div class = dugmici *ngIf="router.url != '/login' && router.url!='/register' && router.url !='/'" >
+    <div class="gore">
+        <span class="naslov" [routerLink]="['/pocetna']">Flashcards</span>
+        <div class=dugmici *ngIf="router.url != '/login' && router.url!='/register' && router.url !='/'">
 
-    <span class = "gdesam">{{this.flashcardService.getGdeSam()}}</span>
-    <span class = "gdesamm">{{this.userService.getPisac()}}</span>
-    <span class = "gdesamm">{{this.kategorijaService.getKategorija()}}</span> 
-    
+            <span class="gdesam">{{this.flashcardService.getGdeSam()}}</span>
+            <span class="gdesamm">{{this.userService.getPisac()}}</span>
+            <span class="gdesamm">{{this.kategorijaService.getKategorija()}}</span>
 
-    <button mat-fab="" color="primary" class="doledesno" (click)="openDialog()" mattooltip="Napravite novu karticu">+</button>
-</div>
+            <button mat-fab="" color="primary" class="doledesno" (click)="openDialog()" mattooltip="Napravite novu karticu">+</button>
+        </div>
 
-</div>
+    </div>
 </mat-toolbar>
 <router-outlet></router-outlet>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<mat-toolbar role="heading" color="primary" class = "gore">
-
-    <div class = "naslov" [routerLink]="['/flashcards']">Flashcards</div>
-    
-            <div class = dugmici *ngIf="router.url != '/login' && router.url!='/register' && router.url !='/'" >
-           
-                <span class = "gdesam">{{this.flashcardService.getGdeSam()}}</span>
-                <span class = "gdesam">{{this.userService.getPisac()}}</span>
-                <span class = "gdesam">{{this.kategorijaService.getKategorija()}}</span> 
-                
-                    <mat-slide-toggle class = "slide">Slide me!</mat-slide-toggle>
-
-                <button mat-fab  color="primary" class = "doledesno" (click)="openDialog()" matTooltip="Napravite novu karticu">+</button>
-
-          
-            </div>
-
-</mat-toolbar>
-
-<router-outlet></router-outlet>
--->

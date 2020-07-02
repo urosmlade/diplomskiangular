@@ -1,4 +1,3 @@
-import { Uloga } from './uloga.model';
 import { Kategorija } from './kategorija.model';
 
 export class Korisnik{
@@ -8,6 +7,5 @@ export class Korisnik{
     username:string;
     email:string;
     password:string;
-    roles:Uloga;
     kategorijas:Kategorija;
 }

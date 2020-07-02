@@ -15,6 +15,7 @@
 
  .form {
   display: flex;
+  background-color:var(--kartica);
 
  }
 
@@ -39,10 +40,10 @@ button{
  .polje{
    color:var(--tekst);
  } 
- 
+ /*
  .form{
   background-color:var(--kartica);
-}
+}*/
 
 
 .kategorije{

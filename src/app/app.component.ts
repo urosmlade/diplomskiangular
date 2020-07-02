@@ -1,9 +1,8 @@
 import { Component} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FlashcardService } from 'src/Service/flashcard.service';
-import { MatDialog, MatSidenav } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { NovakarticadijalogComponent } from 'src/Komponente/novakarticadijalog/novakarticadijalog.component';
-import { Flashcard } from 'src/Model/flashcard.model';
 import { ReglogComponent } from 'src/Komponente/reglog/reglog.component';
 import { Router} from '@angular/router';
 import { LoginComponent } from 'src/Komponente/login/login.component';
@@ -40,11 +39,11 @@ export class AppComponent {
               public userService:UserService,
               public kategorija:Kategorija,
               public pocetna:PocetnaComponent,
-              public sideNavService: SideNavService){
-                
+              public sideNavService: SideNavService,
+              ){
               }
     
-              
+
 
 clickMenu() { 
   this.sideNavService.toggle();
@@ -66,33 +65,31 @@ public brisiKategorija(){
 }
 
 
-
   ngOnInit(){
+   
   }
  
 
+public openDialog() {
+    const dialogRef = this.dialog.open(NovakarticadijalogComponent, {
+        data: {}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
 
+        const naziv = this.flashcardService.getGdeSam();
+        if (naziv == "Pocetna strana") {
+            this.pocetna.pocetnastrana();
+        }
 
+        if (naziv == "Korisnik:" && this.userService.getPisac() == this.usernameService.decrypt()) {
+            this.pocetna.flashcardsProfilKorisnikaPrivatnoIJavno(this.usernameService.decrypt());
+        }
 
-public openDialog(){
-  const dialogRef = this.dialog.open(NovakarticadijalogComponent,{data:{}});
-  
-  dialogRef.afterClosed().subscribe(result=>{
-      
-    const naziv = this.flashcardService.getGdeSam();
-    if(naziv == "Pocetna strana"){
-      this.pocetna.pocetnastrana();
-    }
-
-    if(naziv == "Korisnik:" && this.userService.getPisac() == this.usernameService.decrypt()){
-      this.pocetna.flashcardsProfilKorisnikaPrivatnoIJavno(this.usernameService.decrypt());      
-    }
-
-    if(naziv=="Kategorija:"){
-      this.pocetna.ucitajFlashcardsPoKategoriji();
-    }
-  })
+        if (naziv == "Kategorija:") {
+            this.pocetna.ucitajFlashcardsPoKategoriji();
+        }
+    })
 }
 }
 

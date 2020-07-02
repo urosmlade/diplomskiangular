@@ -11,8 +11,8 @@
         </mat-form-field>
       
         <mat-form-field>
-          <textarea class="polje"  matInput maxlength="1000" #odgovor [matTextareaAutosize] [(ngModel)]="flashcard.odgovor" required></textarea>
-          <mat-hint align="end" class ="hint">{{odgovor.value?.length || 0}}/1000</mat-hint>
+          <textarea class="polje"  matInput maxlength="250" #odgovor [matTextareaAutosize] [(ngModel)]="flashcard.odgovor" required></textarea>
+          <mat-hint align="end" class ="hint">{{odgovor.value?.length || 0}}/250</mat-hint>
           <mat-placeholder class="placeholder">Odgovor</mat-placeholder>
 
         </mat-form-field>

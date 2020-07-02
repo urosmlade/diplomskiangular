@@ -8,7 +8,7 @@
     margin:auto;
   }
   
-  .formgroup{
+  .form-group{
       max-width: 330px;
   }
 
@@ -16,6 +16,6 @@
     color:var(--tekst);
   }
 
-p{
-    color:var(--tekst);
-}
+  p{
+      color:var(--tekst);
+  }

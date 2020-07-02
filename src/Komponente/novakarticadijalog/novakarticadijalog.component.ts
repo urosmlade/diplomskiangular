@@ -17,7 +17,6 @@ import { UsernameService } from 'src/Service/username.service';
 })
 export class NovakarticadijalogComponent implements OnInit {
 
-  filteredOptions: Observable<Kategorija[]>;
   
   kategorije:Kategorija[];
   korisnik:Korisnik;

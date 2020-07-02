@@ -6,7 +6,6 @@ import { UserService } from 'src/Service/user.service';
 import { Router } from '@angular/router';
 import { UsernameService } from 'src/Service/username.service';
 import { KategorijaService } from 'src/Service/Kategorija.service';
-import { PocetnaComponent } from '../pocetna/pocetna.component';
 import { Korisnik } from 'src/Model/korisnik.model';
 
 
@@ -17,8 +16,8 @@ import { Korisnik } from 'src/Model/korisnik.model';
 })
 export class OdgovorDijalogComponent implements OnInit {
 
-obrisitrue:boolean = false;
-korisnik:Korisnik;
+//obrisitrue:boolean = false;
+//korisnik:Korisnik;
 
   constructor(public dialogRef:MatDialogRef<OdgovorDijalogComponent>,
               public userService:UserService,
@@ -27,10 +26,9 @@ korisnik:Korisnik;
               public flashcardService:FlashcardService,
               public usernameService:UsernameService,
               public kategorijaService:KategorijaService,
-              //public pocetna:PocetnaComponent
               public snackBar:MatSnackBar,
               ) { }
-
+/*
 public deleteFlashcard(id:number){
     this.flashcardService.deleteFlashcard(id);
     this.snackBar.open("Obrisali ste karticu","U redu", {duration:2000});
@@ -50,24 +48,24 @@ public checkbox(){
   this.data.privatno = !this.data.privatno;
 }
 
-
+*/
 
   ngOnInit() {
-  
+  /*
     this.userService.getOne(this.usernameService.decrypt()).subscribe(korisnik=>{
       this.korisnik = korisnik;
-   });
+   });*/
    
   }
-  
+  /*
   flashcards : Flashcard[];
 
   public loadAutor(username:string){
     this.userService.getOne(username);
   }
+*/
 
-
-
+/*
   tudjiprofil(naziv:HTMLParagraphElement){
     const username = naziv.textContent;
     if(username != this.usernameService.decrypt()){
@@ -82,5 +80,5 @@ public checkbox(){
     this.flashcardService.flashcardsSamoPrivatneDrugogKorisnikaS(autor).subscribe(data=>{
       this.flashcards = data;
     });
-  }
+  }*/
 }

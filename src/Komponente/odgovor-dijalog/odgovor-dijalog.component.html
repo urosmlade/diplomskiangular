@@ -1,4 +1,3 @@
-
 <div class = "odgovor-dijalog">
   <div class = "naslov">{{data.pitanje}}</div>
     <hr>
@@ -8,50 +7,11 @@
     <p class = "doletekst">Kategorija: {{data.kategorijaBean.naziv}}</p>
     <div>
       <p class = "doletekst">Autor:</p>
-      <p class = "doletekst" #pisac (click)="tudjiprofil(pisac)">{{data.korisnik.username}}</p> 
-      <!--<button tabindex =-1 class="obrisidugme" mat-flat-button color="warn" *ngIf="data.korisnik.username == this.usernameService.decrypt() && !obrisitrue" (click)="obrisi()">Obrisi</button>
-      <button tabindex =-1 class="obrisidugme" mat-flat-button color="warn" *ngIf="obrisitrue" (click)="deleteFlashcard(data.id)">Potvrdi</button>
-      <mat-checkbox  *ngIf="this.data.korisnik.username == this.usernameService.decrypt()" [(ngModel)]="data.privatno" (change)="checkbox()" class = "check">Private</mat-checkbox>
-      -->
+      <p class = "doletekst">{{data.korisnik.username}}</p> 
     </div>
-
   </div>
-
 </div>
 
 
 
 
-
-
-<!--
-(click)="deleteFlashcard(data.id)"
-
-
-
-
-
-<div class = "odgovor-dijalog">
-  <div class = "naslov">
-    <mat-card-title >{{data.pitanje}}</mat-card-title>
-  </div>
-
-  <mat-divider></mat-divider>
-
-  <mat-card-content  class = "odgovor">
-    <p>{{data.odgovor}}</p>
-  </mat-card-content>
-
-  <mat-divider></mat-divider>
-
-  <div class = "kategorija" *ngIf="data.kategorijaBean != null"> 
-
-    <mat-card-footer>
-       Kategorija: {{data.kategorijaBean.naziv}}, Autor: 
-        <p #pisac (click)="friend(pisac)" style="display: inline;">{{data.korisnik.username}}</p> 
-       <mat-checkbox *ngIf="data.korisnik.username == this.token.getUsername()" [(ngModel)]="data.privatno" (change)="checkbox()" class = "check">Private</mat-checkbox>
-      <button mat-button *ngIf="data.korisnik.username == this.token.getUsername()" (click)="deleteFlashcard(data.id)">Obrisi</button>
-    </mat-card-footer>
-
-  </div>
-</div>-->

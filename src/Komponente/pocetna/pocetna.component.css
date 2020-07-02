@@ -9,19 +9,14 @@ p{
   color:var(--tekst);
 }
 
-
-
-
 .pozadina{
   margin:auto;
   background-color: var(--color);
-  
 }
 
 hr{
   color:var(--tekst);
-}
-
+} 
 
 .slika{
   width:100%;
@@ -36,17 +31,12 @@ hr{
   margin-left: 50px;
 }
 
-
-
 .profilslika{
   width:150px;
   height:150px;
   border-radius: 50%;
   background-color: var(--color);
-
 }
-
-
 
 .opis{
   background-color: var(--color);
@@ -87,8 +77,6 @@ hr{
   color:var(--tekst);
 }
 
-
-
 .imeprezime{
   margin-bottom: 10px;
 }
@@ -101,10 +89,6 @@ hr{
 .email{
   font-size: 18px;
 }
-.brojkartica{
-  font-size: 18px;
-}
-
 
 .mat-sidenav-container{
   height: 90vh;
@@ -129,35 +113,11 @@ hr{
   margin-top: 20px;
 }
 
-
-
 .ikonice{
   width:50px;
   height: 50px;
   float:left;
   margin-top: 10px;
-  cursor: pointer;
-  color:var(--tekst);
-}
-
-
-
-.ikonicedole{
-  position: absolute;
-  left:22px;
-  bottom: 90px;
-  float:left;
-  cursor: pointer;
-  color:var(--tekst);
-
-}
-
-
-.ikonicedolesvetlo{
-  position: absolute;
-  left:22px;
-  bottom: 150px;
-  float:left;
   cursor: pointer;
   color:var(--tekst);
 }
@@ -177,53 +137,6 @@ hr{
   cursor: pointer;
 }
 
-.containerlevotekstdole{
-  position: absolute;
-  bottom: 40px;
-  float:left;
-  cursor: pointer;
-}
-
-.containerlevotekstdolesijalica{
-  position: absolute;
-  bottom: 100px;
-  float:left;
-  cursor: pointer;
-}
-
-
-.slikalevoa{
-  width:60px;
-  height:60px;
-  border-radius: 50%;
-}
-
-.slikalevob{
-  width:50px;
-  height:30px;
-}
-
-.slikalevoc{
-  width:50px;
-  height:30px;
-}
-
-.pocetnastranadugme{
-  position: fixed;
-  left:0;
-  top:60px;
-  height: 90px;
-  width:90px;
-}
-
-.profildugme{
-  position: fixed;
-  left:0;
-  top:160px;
-  height: 200px;
-  width:90px;
-}
-
 .korisnicislika{
   width:60px;
   height:60px;
@@ -235,7 +148,6 @@ hr{
   width:350px;
   margin-left: 110px;
 }
-
 
 .korisnici {
   background-color: var(--color);
@@ -250,12 +162,6 @@ hr{
 button{
   color:var(--tekst);
 }
-
-
-
-
-
-
 
 .javno{
   width: 170px;
@@ -291,7 +197,6 @@ button{
   padding-right: 10px;
 }
 
-
 .mat-card-content{
   height:120px;
   margin-bottom: 0;
@@ -306,71 +211,27 @@ button{
 
 .doledugme{
   color:var(--tekst);
-
 }
 
 .doledugme:hover{
   cursor: pointer;
 }
 
-
-
-.tekstslika{
-  font-size: 20px;
-  text-align: center;
-  word-wrap: break-word;
-}
-
 .brojkartica{
-margin-left: 20px;
-display:inline-block;
-margin-right: 20px;
-
-}
-
-.naziv{
-display:inline-block;
+  margin-left: 20px;
+  display:inline-block;
+  margin-right: 20px;
+  font-size: 18px;
 }
 
 .prati{
 margin-left: 30px;
 }
 
-
-.mat-tab-group{
-  background-color: var(--tab);
-}
-
-
 ::ng-deep .mat-tab-label-content{
   color:var(--tekst);
 }
 
-
 .example-viewport {
 height: 80vh;
 }
-
-
-
-
-
-
-.privatnooznaka{
-margin-bottom: 0;
-margin-top: 0;
-margin-left: 5px;
-width: 20px;
-height: 20px;
-
-}
-
-
-
-
-.kartica{
-  width:100px;
-  height:100px;
-}
-
-

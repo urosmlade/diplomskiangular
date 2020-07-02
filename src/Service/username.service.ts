@@ -16,24 +16,19 @@ export class UsernameService{
         return this.username;
     }
 
-
     encrypt(value : string) : string{
         return CryptoJS.AES.encrypt(value, this.secretKey.trim()).toString();
     }
 
     decrypt(){
-        return CryptoJS.AES.decrypt(window.sessionStorage.getItem(USERNAME_KEY), this.secretKey.trim()).toString(CryptoJS.enc.Utf8);
+        return CryptoJS.AES.decrypt(window.localStorage.getItem(USERNAME_KEY), this.secretKey.trim()).toString(CryptoJS.enc.Utf8);
     }
 
     encryptedText:string  = this.encrypt(this.getUsername());
 
      
-
-    //decrypter:string = this.decrypt(window.sessionStorage.getItem(USERNAME_KEY));
-
-
-sacuvaj(){
-    window.sessionStorage.setItem(USERNAME_KEY ,this.encryptedText);
-}
+    sacuvaj(){
+        window.localStorage.setItem(USERNAME_KEY ,this.encryptedText);
+    }
 
 }

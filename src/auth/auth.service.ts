@@ -15,8 +15,8 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private loginUrl = 'http://localhost:8083/api/auth/signin';
-  private signupUrl = 'http://localhost:8083/api/auth/signup';
+  private signupUrl = 'https://flashcards-kartice.herokuapp.com/api/auth/signup';
+  private loginUrl = 'https://flashcards-kartice.herokuapp.com/api/auth/signin';
 
 
   constructor(private http: HttpClient) {
